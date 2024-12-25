@@ -15,7 +15,6 @@ int maxSlicesLinear(vector<int>& slices, int n) {
     return dp[len][n];
 }
 
-
 int maxSizeSlices(vector<int>& slices) {
     int n = slices.size() / 3;
     vector<int> slices1(slices.begin(), slices.end() - 1); 
