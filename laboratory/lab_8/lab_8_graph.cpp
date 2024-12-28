@@ -246,6 +246,8 @@ double dfs(Node* startNode, Node* endNode, unordered_set<Node*>& visited) {
     return -1.0; // O(1)
 }
 
+#ifndef TESTING
+
 int main() {
     Graph graph("spb_graph.txt"); // Инициализация графа (O(V + E))
 
@@ -263,9 +265,9 @@ int main() {
 
     unordered_set<Node*> visited; // O(V) по памяти
 
-    cout << "DFS Distance: " << dfs(startNode, endNode, visited) << endl; // O(V + E)
-    double dfsTime = measureTime(dfs, startNode, endNode, ref(visited)); // O(V + E)
-    cout << "DFS Time: " << dfsTime << " seconds" << endl; // O(1)
+    // cout << "DFS Distance: " << dfs(startNode, endNode, visited) << endl; // O(V + E)
+    // double dfsTime = measureTime(dfs, startNode, endNode, ref(visited)); // O(V + E)
+    // cout << "DFS Time: " << dfsTime << " seconds" << endl; // O(1)
 
     // double bfsTime = measureTime(bfs, graph.nodes, startNode, endNode);
     // cout << "BFS Distance: " << bfs(graph.nodes, startNode, endNode) << endl;
@@ -276,10 +278,12 @@ int main() {
     // cout << endl << "Dijkstra Distance: " << distancesDijkstra[endNode] << endl;
     // cout << "Dijkstra Time: " << dijkstraTime << " seconds" << endl;
 
-    // double aStarTime = measureTime(aStar, graph.nodes, startNode, endNode);
-    // auto distancesAStar = aStar(graph.nodes, startNode, endNode);
-    // cout << endl << "A* Distance: " << distancesAStar[endNode] << endl;
-    // cout << "A* Time: " << aStarTime << " seconds" << endl;
+    double aStarTime = measureTime(aStar, graph.nodes, startNode, endNode);
+    auto distancesAStar = aStar(graph.nodes, startNode, endNode);
+    cout << endl << "A* Distance: " << distancesAStar[endNode] << endl;
+    cout << "A* Time: " << aStarTime << " seconds" << endl;
 
     return 0; // O(1)
 }
+
+#endif
